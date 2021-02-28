@@ -48,13 +48,14 @@ export default {
   },
   async mounted() {
     this.img = await this.getImg(this.Post.featured_media);
+    console.log(this.Post.status);
   },
   methods: {
     async getImg(id) {
       let url = await this.$axios
         .get(`/media/${id}`)
         .then(res => res.data.source_url);
-      console.log(url);
+
       return url;
     }
   }

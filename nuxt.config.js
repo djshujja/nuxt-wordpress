@@ -40,10 +40,10 @@ export default {
         token: {
           property: "token",
           // required: true,
-          type: "Bearer"
+          type: "Bearer "
         },
         user: {
-          property: "user"
+          property: false
           // autoFetch: true
         },
         endpoints: {
@@ -51,9 +51,10 @@ export default {
             url: "http://localhost/wordpress-rest/wp-json/jwt-auth/v1/token",
             method: "post"
           },
-          logout: { url: "/api/auth/logout", method: "post" },
+
+          logout: false,
           user: {
-            url: "http://localhost/wordpress-rest/wp-json/wp/v2/users/me",
+            url: "/users/me",
             method: "get"
           }
         }
@@ -63,7 +64,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: "http://localhost/wordpress-rest/wp-json/wp/v2/"
+    baseURL: "http://localhost/wordpress-rest/wp-json/wp/v2"
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

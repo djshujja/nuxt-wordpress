@@ -47,10 +47,16 @@ export default {
     };
   },
   methods: {
-    login() {
-      this.$auth.loginWith("local", {
-        data: this.loginInfo
-      });
+    async login() {
+      setTimeout(async () => {
+        await this.$auth
+          .loginWith("local", {
+            data: this.loginInfo
+          })
+          .then(() => {
+            this.$router.push("/");
+          });
+      }, 0);
     }
   }
 };
